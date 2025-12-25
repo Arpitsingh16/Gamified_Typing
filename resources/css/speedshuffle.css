@@ -1,0 +1,22 @@
+.letter-tile {
+    padding: 14px 20px;
+    background: #1f2937;
+    color: white;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: 0.25s;
+}
+
+.letter-tile:hover {
+    transform: scale(1.12);
+    background: #374151;
+}
+
+.letter-picked {
+    background: #0ea5e9 !important;
+    color: white;
+    transform: scale(1.1);
+}

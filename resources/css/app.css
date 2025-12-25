@@ -1,0 +1,46 @@
+@import 'bubble.css';
+@import 'sentence.css';
+@import 'speedshuffle.css';
+@import 'sniper.css';
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Global body theme */
+body {
+    @apply bg-gray-900 text-white;
+}
+
+/* Typing Test Character Styles */
+.char {
+    transition: color .1s ease, background .1s ease;
+    padding: 2px 1px;
+    border-radius: 4px;
+}
+
+.correct {
+    color: #22c55e; /* green-500 */
+    background: rgba(34, 197, 94, 0.15);
+    animation: flash-green .15s;
+}
+
+.wrong {
+    color: #ef4444; /* red-500 */
+    background: rgba(239, 68, 68, 0.15);
+    animation: flash-red .15s;
+}
+
+@keyframes flash-green {
+    from { background: rgba(34, 197, 94, 0.5); }
+    to   { background: rgba(34, 197, 94, 0.15); }
+}
+
+@keyframes flash-red {
+    from { background: rgba(239, 68, 68, 0.5); }
+    to   { background: rgba(239, 68, 68, 0.15); }
+}

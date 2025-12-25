@@ -1,0 +1,29 @@
+#gameArea {
+    background-color: #1F2937; /* Tailwind gray-900 */
+    height: 350px;
+    border-radius: 0.75rem;
+    border: 4px solid #06B6D4; /* cyan-400 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 1.25rem;
+    color: white;
+}
+
+/* Letter slice animation */
+@keyframes sliceFly {
+    0% { transform: rotate(0deg) translateY(0); opacity: 1; }
+    30% { transform: rotate(-20deg) translateY(-10px); opacity: 0.8; }
+    60% { transform: rotate(15deg) translateY(-20px); opacity: 0.5; }
+    100% { transform: rotate(-10deg) translateY(-50px) translateX(20px); opacity: 0; }
+}
+
+.sliced-letter {
+    display: inline-block;
+    animation: sliceFly 0.5s ease forwards;
+    color: #06b6d4;
+    font-weight: bold;
+}
+

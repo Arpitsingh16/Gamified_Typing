@@ -1,0 +1,58 @@
+#gameArea {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #111;
+    border: 3px solid #ff4444;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.word {
+    position: absolute;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 20px;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.word.destroyed {
+    transform: scale(2) rotate(45deg);
+    opacity: 0;
+    filter: blur(2px);
+}
+
+.word.sniper {
+    background: linear-gradient(45deg, #ff1e1e, #ff6767);
+    color: white;
+}
+
+.word.slice {
+    background: linear-gradient(45deg, #00e600, #66ff66);
+    color: black;
+}
+
+/* destruction effect */
+
+
+/* muzzle flash */
+.shoot-flash {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 25px;
+    background: yellow;
+    opacity: 0;
+    border-radius: 50%;
+    filter: blur(4px);
+    transition: opacity 0.15s ease-out;
+}
+
+.shoot-flash.active {
+    opacity: 1;
+}

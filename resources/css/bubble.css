@@ -1,0 +1,27 @@
+.bubble {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    box-shadow: 0 0 10px #06b6d4, 0 0 20px #3b82f6;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+/* Blast animation */
+@keyframes blast {
+    0% { transform: scale(1) rotate(0deg); opacity: 1; }
+    30% { transform: scale(1.8) rotate(20deg); opacity: 0.8; }
+    60% { transform: scale(2.2) rotate(-15deg); opacity: 0.5; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.bubble-pop {
+    animation: blast 0.3s ease forwards;
+}
