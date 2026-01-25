@@ -1,0 +1,117 @@
+/* Fade-in animation for results */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Base styling for characters inside #testText */
+#testText span {
+    transition: color 0.2s ease, background-color 0.2s ease;
+    color: #9ca3af; /* gray-400 */
+    padding: 0 2px;
+    user-select: text;
+}
+
+/* Correct character — pop + ripple glow */
+#testText span.correct {
+    position: relative;
+    color: #6ee7b7;
+    background-color: rgba(34, 197, 94, 0.15);
+    border-radius: 4px;
+    animation: popIn 0.15s ease-out;
+}
+
+/* Ripple glow behind the character */
+#testText span.correct::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 6px;
+    background: rgba(34, 197, 94, 0.35);
+    filter: blur(4px);
+    z-index: -1;
+    animation: ripple 0.45s ease-out forwards;
+}
+
+/* Pop-in animation */
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Ripple expanding glow */
+@keyframes ripple {
+    0% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.8);
+    }
+}
+
+/* Incorrect character */
+#testText span.incorrect {
+    color: #f87171;
+    background-color: rgba(239, 68, 68, 0.15);
+    border-radius: 4px;
+    text-decoration: underline wavy red;
+    animation: shake 0.1s ease-in-out;
+}
+
+/* Shake animation for wrong letters */
+@keyframes shake {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(-2px);
+    }
+    50% {
+        transform: translateX(2px);
+    }
+    75% {
+        transform: translateX(-2px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+/* Fade-out animation for whole word */
+.word-fade {
+    animation: fadeWord 0.6s forwards;
+}
+
+@keyframes fadeWord {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+/* Textarea glow on focus */
+textarea:focus {
+    box-shadow: 0 0 20px 3px #22d3ee;
+    border-radius: 12px;
+}

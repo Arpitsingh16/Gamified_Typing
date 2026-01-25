@@ -6,6 +6,7 @@ import './bubble.js';
 import './sentence.js';
 import './speedshuffle.js';
 import './sniper.js';
+import './welcome.js';
 
 
 
