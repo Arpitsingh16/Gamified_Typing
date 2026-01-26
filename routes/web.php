@@ -10,6 +10,9 @@ use App\Http\Controllers\SentenceRushController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\SpeedShuffleController;
 use App\Http\Controllers\SniperController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+
 
 
 
@@ -40,6 +43,24 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sniper', [SniperController::class, 'index'])->name('sniper.index');
 
 
+});
+
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    
+    Route::get('/users', [AdminDashboardController::class, 'manageUsers'])->name('admin.users');
+    Route::get('/users/{user}/edit', [AdminDashboardController::class, 'editUser'])->name('admin.users.edit');
+    Route::put('/users/{user}', [AdminDashboardController::class, 'updateUser'])->name('admin.users.update');
+    Route::delete('/users/{user}', [AdminDashboardController::class, 'deleteUser'])->name('admin.users.delete');
+
+    Route::get('/results', [AdminDashboardController::class, 'viewResults'])->name('admin.results');
+    Route::get('/achievements', [AdminDashboardController::class, 'manageAchievements'])->name('admin.achievements');
+    
+
+    Route::get('/settings', [AdminDashboardController::class, 'gameSettings'])->name('admin.settings');
+
+    Route::post('/settings', [AdminDashboardController::class, 'updateSettings'])->name('admin.settings.update');
 });
 
 require __DIR__.'/auth.php';
